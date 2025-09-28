@@ -1,65 +1,49 @@
-<div id="loginContainer" style="display: none;">
-    <div id="loginCancelContainer" style="display: none;">
-        <button id="loginCancelButton">
-            <div id="loginCancelIcon">X</div>
-            <span id="loginCancelText"><%- lang('login.loginCancelText') %></span>
-        </button>
-    </div>
-    <div id="loginContent">
-        <form id="loginForm">
-            <img id="loginImageSeal" src="assets/images/SealCircle.png"/>
-            <span id="loginSubheader"><%- lang('login.loginSubheader') %></span>
-            <div class="loginFieldContainer">
-                <svg id="profileSVG" class="loginSVG" viewBox="40 37 65.36 61.43">
-                    <g>
-                        <path d="M86.77,58.12A13.79,13.79,0,1,0,73,71.91,13.79,13.79,0,0,0,86.77,58.12M97,103.67a3.41,3.41,0,0,0,3.39-3.84,27.57,27.57,0,0,0-54.61,0,3.41,3.41,0,0,0,3.39,3.84Z"/>
-                    </g>
-                </svg>
-                <span class="loginErrorSpan" id="loginEmailError"><%- lang('login.loginEmailError') %></span>
-                <input id="loginUsername" class="loginField" type="text" placeholder="<%- lang('login.loginEmailPlaceholder') %>"/>
-            </div>
-            <div class="loginFieldContainer">
-                <svg id="lockSVG" class="loginSVG" viewBox="40 32 60.36 70.43">
-                    <g>
-                        <path d="M86.16,54a16.38,16.38,0,1,0-32,0H44V102.7H96V54Zm-25.9-3.39a9.89,9.89,0,1,1,19.77,0A9.78,9.78,0,0,1,79.39,54H60.89A9.78,9.78,0,0,1,60.26,50.59ZM70,96.2a6.5,6.5,0,0,1-6.5-6.5,6.39,6.39,0,0,1,3.1-5.4V67h6.5V84.11a6.42,6.42,0,0,1,3.39,5.6A6.5,6.5,0,0,1,70,96.2Z"/>
-                    </g>
-                </svg>
-                <span class="loginErrorSpan" id="loginPasswordError"><%- lang('login.loginPasswordError') %></span>
-                <input id="loginPassword" class="loginField" type="password" placeholder="<%- lang('login.loginPasswordPlaceholder') %>"/>
-            </div>
-            <div id="loginOptions">
-                <span class="loginSpanDim">
-                    <a href="<%- lang('login.loginForgotPasswordLink') %>"><%- lang('login.loginForgotPasswordText') %></a>
-                </span>
-                <label id="checkmarkContainer">
-                    <input id="loginRememberOption" type="checkbox" checked>
-                    <span id="loginRememberText" class="loginSpanDim"><%- lang('login.loginRememberMeText') %></span>
-                    <span class="loginCheckmark"></span>
-                </label>
-            </div>
-            <button id="loginButton" disabled>
-                <div id="loginButtonContent">
-                    <%- lang('login.loginButtonText') %>
-                    <svg id="loginSVG" viewBox="0 0 24.87 13.97">
-                        <defs>
-                            <style>.arrowLine{fill:none;stroke:#FFF;stroke-width:2px;transition: 0.25s ease;}</style>
-                        </defs>
-                        <polyline class="arrowLine" points="0.71 13.26 12.56 1.41 24.16 13.02"/>
-                    </svg>
-                    <div class="circle-loader">
-                        <div class="checkmark draw"></div>
-                    </div>
-                    <!--<div class="spinningCircle" id="loginSpinner"></div>-->
-                </div>
-            </button>
-            <div id="loginDisclaimer">
-                <span class="loginSpanDim" id="loginRegisterSpan">
-                    <a href="<%- lang('login.loginNeedAccountLink') %>"><%- lang('login.loginNeedAccountText') %></a>
-                </span>
-                <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer1') %></p>
-                <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer2', { appName: lang('app.title') }) %></p>
-            </div>
-        </form>
-    </div>
-    <script src="./assets/js/scripts/login.js"></script>
-</div>
+{
+    "html": {
+        "avatarOverlay": "Modifier"
+    },
+    "js": {
+        "login": {
+            "error": {
+                "invalidValue": "* Valeur incorrecte",
+                "requiredValue": "* Requis",
+                "userMigrated": {
+                    "title": "Erreur durant la connexion:<br>Identifiants invalides",
+                    "desc": "Vous avez essayé de vous loguer avec un compte migré. Veuillez vous connecter avec l'email à la place du nom d'utilisateur."
+                },
+                "invalidCredentials": {
+                    "title": "Erreur durant la connexion:<br>Identifiants invalides",
+                    "desc": "L'e-mail ou le mot de passe que vous avez entré est incorrect. Veuillez réessayer."
+                },
+                "rateLimit": {
+                    "title": "Erreur lors de la connexion:<br>Trop de tentatives",
+                    "desc": "Il y a eu trop de tentatives de connexion avec ce compte récemment. Veuillez réessayer plus tard."
+                },
+                "noInternet": {
+                    "title": "Erreur lors de la connexion:<br>Pas de connexion Internet",
+                    "desc": "Vous devez être connecté à Internet pour vous connecter. Veuillez vous connecter et réessayer."
+                },
+                "authDown": {
+                    "title": "Erreur lors de la connexion:<br>Serveur d'authentification hors ligne",
+                    "desc": "Le serveur d'authentification de Mojang est actuellement hors ligne ou inaccessible. Veuillez patienter un peu et réessayer. Vous pouvez vérifier l'état du serveur sur <a href=\"https://help.mojang.com/\">le portail d'aide de Mojang</a>."
+                },
+                "notPaid": {
+                    "title": "Erreur lors de la connexion:<br>Jeu non acheté",
+                    "desc": "Le compte avec lequel vous essayez de vous connecter n'a pas acheté de copie de Minecraft.<br>Vous pouvez acheter une copie sur <a href=\"https://minecraft.net/\">Minecraft.net</a>."
+                },
+                "unknown": {
+                    "title": "Erreur lors de la connexion:<br>Erreur inconnue"
+                }
+            },
+            "login": "CONNEXION",
+            "loggingIn": "CONNEXION EN COURS",
+            "success": "CONNECTÉ",
+            "tryAgain": "Veuillez réessayer"
+        },
+        "landing": {
+            "launch": {
+                "pleaseWait": "Veuillez patienter..."
+            }
+        }
+    }
+}
